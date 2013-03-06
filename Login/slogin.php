@@ -14,11 +14,11 @@ $anzahl = mysql_num_rows($adressen_query);
 if($pass== 0) exit (header("location:../loginf.php"))  ;
 if($pass1 == $pass){
 			
-			session_register("name");
-			session_register("pass");
+			
 			header("location:../eingeloggt.php");
 			$_SESSION['name']= $name ;
 			$_SESSION['pass']= $pass ;
+			
 			}
 	else {
 			header("location:../loginf.php");	
