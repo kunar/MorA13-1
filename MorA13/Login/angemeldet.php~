@@ -1,0 +1,14 @@
+<?php
+session_start();
+if(!session_is_registered(name)){
+header("location:slogin.php");
+}
+?>
+
+<html>
+<body>
+Erfolgreich angemeldet
+<br><a href=Test.php>Test</a></br>
+<br><a href=ausloggen.php>Ausloggen!</a></br>
+</body>
+</html>

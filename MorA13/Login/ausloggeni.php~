@@ -1,0 +1,8 @@
+<?php
+session_start();
+session_destroy();
+?>
+
+Erfolgreich ausgeloggt!
+
+<br><a href=login.php>erneut Anmelden</a></br>
