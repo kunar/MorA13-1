@@ -1,8 +1,8 @@
 <?php
 
-$Name = $_GET[Name] ;
-$pass = $_GET[pass] ;
-$pass1 = $_GET[pass1] ;
+$Name = $_GET['Name'] ;
+$pass = $_GET['pass'] ;
+$pass1 = $_GET['pass1'] ;
 
 
 include ("dbl.php");
