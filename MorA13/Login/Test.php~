@@ -1,0 +1,10 @@
+<?php
+include("testuser.php") ;
+?>
+
+<html>
+<body>
+Hier stehen geheime Informationen!
+</body>
+</html>
+<a href=ausloggen.php>Ausloggen!</a>
