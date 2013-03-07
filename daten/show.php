@@ -6,66 +6,46 @@
 <br></br>
 
 <?php 
+$Id = $_SESSION['Id'] ;
+$Fach = "Mathe" ;
 include ("dbl.php");
 
-$sql = "SELECT ID, Dates, Notes FROM A";
+$sql = "SELECT * FROM A$Id WHERE A$Id.subject='$Fach';";
 $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 $anzahl = mysql_num_rows($adressen_query);
 ?>
+<fieldset> 	
+<table  cellpadding="4" frame="below">
+	<tr>
+	<td align="center" width="50">ID</td>
+	<td align="center" width="100">Datum</td>
+	<td align="center" width="100">Note</td>
+	<td align="center" width="100">Fach</td>
+	<td align="center" width="100">Gewichtung</td>
+	<td align="center" width="100">Gesamtnote</td>
+	</tr>	
+</table>
 
 <?php
 	while ($adr = mysql_fetch_array($adressen_query)){
+$ID = $adr['ID'] ;
+$Date = $adr['Date'] ;
+$Note = $adr['Note'] ;
+$Fach = $adr['subject'] ;
+$art = $adr['art'] ;
 
+?>
 
-
-?>	
-<fieldset>
-<legend><center>Schriftlich</center></legend> 
-
-<table  cellpadding="4" rules="all" frame="void">
-
-	<tr>
-	<td>ID</td>
-	<td>Date</td>
-	<td>Note</td>
-	
-	</tr>
-
-
-<?php
-	while ($adr = mysql_fetch_array($adressen_query)){
-?>	
+<table bgcolor="#D8D8D8"  cellpadding="4" rules="all" frame="void" border="1px"  >
 
 	<tr>
-	<td><?=$adr['ID']?></td>
-	<td><?=$adr['Dates']?></td>
-	<td><?=$adr['Notes']?></td>
+	<td align="center" width="50"><?=$ID?></td>
+	<td align="center" width="100"><?=$Date?></td>
+	<td align="center" width="100"><?=$Note?></td>
+	<td align="center" width="100"><?=$Fach?></td>
+	<td align="center" width="100"><?=$art?></td>
 	
 	</tr></table>
 <?php
 }
 ?>
-
-
-</fieldset><fieldset>
-<legend>Mündlich</legend> 
-
-<table align="left" cellpadding="4" rules="all" frame="void">
-	<tr>
-	
-	<td>Datum</td>
-	<td></td>
-	
-	</tr>
-	<tr>
-	
-	<td>Note</td>
-	<td></td>
-	
-	</tr>
-</table>
-</fieldset>
-<?php
-}
-
-
