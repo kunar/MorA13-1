@@ -40,33 +40,21 @@ $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 while ($adr = mysql_fetch_assoc($adressen_query)){
 $tst = $adr['subject'] ;
 ?>
-<li><a href= "Form1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
+<li><a href= "Form.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
 
 <? } ?>
 <li><form method="get" action="Form1.php">
      Neu: <input name="Fach" type="text"><br></li>
 
+
 </ulr>
 
-
-<?php 
-$Id = $_SESSION['Id'] ;
-include ("dbl.php");
-$b = "0" ;
-if (isset($Fach)) {$b = "1" ;}
-switch($b){
-	
-	case 0:	
-		include("daten/form.php");
-		
-	case 1:
-	 		echo "<center>Bitte Fach Waehlen" ;
-}
-?>
-
-
+<?php
+$Fach = $_GET['u'] ;
+include("daten/form.php") ; 
+?> 
 </div>
-			<div class="footer">
+		<div class="footer">
 				
 				<p>Copyright &#169; Artur & Moritz 2013</p>
 				<div class="connect">

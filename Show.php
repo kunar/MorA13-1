@@ -31,7 +31,79 @@ $pass = $_SESSION['pass'];
 					<li  class="selected"><a href="Show.php">Noten Zeigen</a></li>
 					<li><a href="graf.php">Noten Uebersicht</a></li>
 </ur>
-<?php include("daten/show.php") ; ?>
+<ulr>
+<?php include ("dbl.php");
+$sql = "SELECT DISTINCT subject FROM A12 ;";
+$adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
+
+while ($adr = mysql_fetch_assoc($adressen_query)){
+$tst = $adr['subject'] ;
+?>
+<li><a href= "Schow1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
+
+<? } ?>
+</ulr>
+
+<?
+$Fach = $_GET['u'] ;
+
+?> 
+
+<?php 
+$Id = $_SESSION['Id'] ;
+include ("dbl.php");
+$b = "1" ;
+if (isset($Fach)) {$b = "0" ;}
+switch($b){
+	
+	case 0:
+		$sql = "SELECT * FROM A$Id WHERE A$Id.subject='$Fach';";
+		$adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
+		$anzahl = mysql_num_rows($adressen_query);
+			echo "<table  cellpadding='4' frame='below'>" ;
+			echo 	"<tr>" ;
+			echo	"<td align='center' width='100'>Datum</td>";
+			echo	"<td align='center' width='100'>Note</td>";
+			echo	"<td align='center' width='100'>Gewichtung</td>";
+			echo	"</tr>";	
+			echo "</table>" ;
+	while ($adr = mysql_fetch_array($adressen_query)){
+$ID = $adr['ID'] ;
+$Date = $adr['Date'] ;
+$Note = $adr['Note'] ;
+$Fach = $adr['subject'] ;
+$art = $adr['art'] ;
+
+echo "<table  cellpadding='4' frame='void'>" ;
+			echo 	"<tr>" ;
+			echo	"<td align='center' width='100'>$Date</td>";
+			echo	"<td align='center' width='100'>$Note</td>";
+			echo	"<td align='center' width='100'>$art</td>";
+			echo	"</tr>";	
+			echo "</table>" ;
+			}
+			?>
+			</div>
+			<div class="footer">
+				
+				<p>Copyright &#169; Artur & Moritz 2013</p>
+				<div class="connect">
+					<a href="http://www.facebook.com/" id="facebook">facebook</a>
+					<a href="http://twitter.com/fwtemplates" id="twitter">twitter</a>
+					<a href="http://www.youtube.com/fwtemplates" id="vimeo">vimeo</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html> 
+<?
+			exit(); 
+		case 1:
+ 		echo "<center>Bitte Fach Waehlen" ;
+}
+?>
+
+
 </div>
 			<div class="footer">
 				

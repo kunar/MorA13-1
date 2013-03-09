@@ -1,10 +1,9 @@
+<?php
+$a = $_GET['u'] ;
+?>
+<center>
 <form method="get" action="daten/f.php">
-    
-<select name="Fach">
-<option value="Mathe">Mathe</option>
-<option value="Deutsch">Deutsch</option>
-<option value="Englisch">Englisch</option>
-</select>
+
 <select name="art">
 <option value="Mündlich">Mündlich</option>
 <option value="Schriftlich">Schriftlich</option>
@@ -12,13 +11,13 @@
 </select>
 <br></br>
 
-<fieldset>
-<legend>Schriftlich</legend> 
 <table>
     <tr>
      	<td>
-<input style="width:123px;" type="text" name="Dates" value="Dates"/></br>
-<input style="width:123px;" type="text" name="Notes" value="Notes"/>
+<input style="width:123px;" type="text" name="Dates" value="Datum"/></br>
+<input style="width:123px;" type="text" name="Notes" value="Note"/>
+<input style="width:123px;" type="hidden" name="Fach" value="<?php echo $a ; ?>"/>
+
 	</td>
 	<td>
 <input type="submit" name="formaction" value="Eintragen" />

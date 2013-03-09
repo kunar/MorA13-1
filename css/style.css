@@ -291,6 +291,26 @@ body{
 	font-family: 'RokkittRegular';
 	outline:none;
 }
+.body ulr{
+	margin:0;
+	list-style:none;
+	padding:0 0 13px ;	
+	float:left
+	}
+.body ulr li{
+	float:center;
+	margin:0 170px 0 23px;
+	line-height: 3;
+	font-size:16px;
+	text-decoration:none;
+	color:#5e5e5e;
+	font-family: 'RokkittRegular';
+	outline:none;
+}
+.body ulr li.selected a,.header ur li a:hover{
+	color:#f78117;
+}
+
 
 
 /*------------------------- Footer ------------------------*/ 

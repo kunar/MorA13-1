@@ -27,41 +27,69 @@ $pass = $_SESSION['pass'];
 			</div>
 			<div class="body">
 				<ur>
-					<li  class="selected"><a href="Form.php">Noten Eintragen</a></li>
-					<li><a href="Show.php">Noten Zeigen</a></li>
+					<li><a href="Form.php">Noten Eintragen</a></li>
+					<li  class="selected"><a href="Show.php">Noten Zeigen</a></li>
 					<li><a href="graf.php">Noten Uebersicht</a></li>
-
 </ur>
 <ulr>
-<?php include ("dbl.php");
+<?php include ("Login/dbl.php");
 $sql = "SELECT DISTINCT subject FROM A12 ;";
 $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 
 while ($adr = mysql_fetch_assoc($adressen_query)){
 $tst = $adr['subject'] ;
 ?>
-<li><a href= "Form1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
+<li><a href= "Show.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
 
 <? } ?>
-<li><form method="get" action="Form1.php">
-     Neu: <input name="Fach" type="text"><br></li>
-
 </ulr>
 
+<?
+$Fach = $_GET['u'] ;
+
+?> 
 
 <?php 
 $Id = $_SESSION['Id'] ;
 include ("dbl.php");
-$b = "0" ;
-if (isset($Fach)) {$b = "1" ;}
-switch($b){
-	
-	case 0:	
-		include("daten/form.php");
-		
-	case 1:
-	 		echo "<center>Bitte Fach Waehlen" ;
-}
+
+if (isset($Fach)) {
+$sql = "SELECT * FROM A$Id WHERE A$Id.subject='$Fach';";
+$adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
+$anzahl = mysql_num_rows($adressen_query);
+?>
+
+<table  cellpadding="4" frame="below">
+	<tr>
+
+	<td align="center" width="100">Datum</td>
+	<td align="center" width="100">Note</td>
+
+	<td align="center" width="100">Gewichtung</td>
+		</tr>	
+</table>
+
+<?php
+	while ($adr = mysql_fetch_array($adressen_query)){
+$ID = $adr['ID'] ;
+$Date = $adr['Date'] ;
+$Note = $adr['Note'] ;
+$Fach = $adr['subject'] ;
+$art = $adr['art'] ;
+
+?>
+
+<table cellpadding="4"  frame="void" >
+
+	<tr>
+	<td align="center" width="100"><?=$Date?></td>
+	<td align="center" width="100"><?=$Note?></td>
+	<td align="center" width="100"><?=$art?></td>
+	</tr>
+</table>
+
+<?php
+	} }
 ?>
 
 

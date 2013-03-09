@@ -1,10 +1,15 @@
-<?php
-$z = "1";
-$Id="13";
-include ("dbl.php");
-mysql_query("CREATE TABLE A$Id (ID INT AUTO_INCREMENT PRIMARY KEY,Date VARCHAR(50) NOT NULL,Note VARCHAR(50) NOT NULL,subject TEXT NOT NULL, art  VARCHAR(50) NOT NULL,Datum DATETIME NOT NULL)");
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 
+<select name="art">
 
-mysql_close();
-echo "erfolgreich" ;
+<option value="Mündlich">Mündlich</option>
+<option value="Schriftlich">Schriftlich</option>
+<option value="Test">Test</option>
+</select>
+
+<?php 
+$a = "test" ;
+$a = $_POST['art'] ;
+echo "$a" ;
+
 ?>
