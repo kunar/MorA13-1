@@ -32,6 +32,7 @@ $pass = $_SESSION['pass'];
 					<li><a href="graf.php">Noten Uebersicht</a></li>
 
 </ur>
+<form method="get" action="daten/f.php">
 <ulr>
 <?php include ("dbl.php");
 $sql = "SELECT DISTINCT subject FROM A12 ;";
@@ -43,7 +44,7 @@ $tst = $adr['subject'] ;
 <li><a href= "Form1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
 
 <? } ?>
-<li><form method="get" action="Form1.php">
+<li>
      Neu: <input name="Fach" type="text"><br></li>
 
 </ulr>

@@ -43,7 +43,7 @@ $tst = $adr['subject'] ;
 <li><a href= "Form.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
 
 <? } ?>
-<li><form method="get" action="Form1.php">
+<li><form method="get" action="daten/f.php">
      Neu: <input name="Fach" type="text"><br></li>
 
 
