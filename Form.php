@@ -35,7 +35,6 @@ $pass = $_SESSION['pass'];
 <form method="get" action="daten/f.php">
 <?
 $Fach = $_GET['u'] ;
-$_SESSION['sub']=$Fach ;
 ?>
 
 <ul><li><div><h3><? echo "$Fach" ; ?></h3></div></ul></li>
@@ -47,6 +46,7 @@ $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 
 while ($adr = mysql_fetch_assoc($adressen_query)){
 $tst = $adr['subject'] ;
+$_SESSION['sub']=$Fach ;
 ?>
 <br><li><input type="button" value="-"onClick="parent.location='daten/delet.php'"><a href= "Form1.php?u=<?php echo "$tst" ; ?>">
 
