@@ -33,6 +33,10 @@ $pass = $_SESSION['pass'];
 
 </ur>
 <form method="get" action="daten/f.php">
+<?
+$Fach = $_GET['u'] ;
+?>
+<ul><li><div><h3><? echo "$Fach" ; ?></h3></div></ul></li>
 <ulr>
 <?php include ("dbl.php");
 $sql = "SELECT DISTINCT subject FROM A12 ;";
@@ -46,24 +50,9 @@ $tst = $adr['subject'] ;
 <? } ?>
 <li>
      Neu: <input name="Fach" type="text"><br></li>
-
 </ulr>
-
-
-<?php 
-$Id = $_SESSION['Id'] ;
-include ("dbl.php");
-$b = "0" ;
-if (isset($Fach)) {$b = "1" ;}
-switch($b){
-	
-	case 0:	
-		include("daten/form.php");
-		
-	case 1:
-	 		echo "<center>Bitte Fach Waehlen" ;
-}
-?>
+<center><p><br>Bitte Fach W&aumlhlen..</br>
+<br>..oder neues Fach hinzufügen</br></p></center>
 
 
 </div>

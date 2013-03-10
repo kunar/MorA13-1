@@ -31,6 +31,11 @@ $pass = $_SESSION['pass'];
 					<li  class="selected"><a href="Show.php">Noten Zeigen</a></li>
 					<li><a href="graf.php">Noten Uebersicht</a></li>
 </ur>
+<?
+$Fach = "bitte w&aumlhlen" ;
+$Fach = $_GET['u'] ;
+?>
+<ul><li><div><h3><? echo "$Fach" ; ?></h3></div></ul></li>
 <ulr>
 <?php include ("dbl.php");
 $sql = "SELECT DISTINCT subject FROM A12 ;";
@@ -39,15 +44,12 @@ $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 while ($adr = mysql_fetch_assoc($adressen_query)){
 $tst = $adr['subject'] ;
 ?>
-<li><a href= "Schow1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
+<li><a href= "Show.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
 
 <? } ?>
 </ulr>
 
-<?
-$Fach = $_GET['u'] ;
-
-?> 
+ 
 
 <?php 
 $Id = $_SESSION['Id'] ;
@@ -99,7 +101,9 @@ echo "<table  cellpadding='4' frame='void'>" ;
 <?
 			exit(); 
 		case 1:
- 		echo "<center>Bitte Fach Waehlen" ;
+?>
+<center><p><br>Bitte Fach W&aumlhlen</p></br></center>
+<?
 }
 ?>
 

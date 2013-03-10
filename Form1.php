@@ -32,6 +32,10 @@ $pass = $_SESSION['pass'];
 					<li><a href="graf.php">Noten Uebersicht</a></li>
 
 </ur>
+<?
+$Fach = $_GET['u'] ;
+?>
+<ul><li><div><h3><? echo "$Fach" ; ?></h3></div></ul></li>
 <ulr>
 <?php include ("dbl.php");
 $sql = "SELECT DISTINCT subject FROM A12 ;";
@@ -40,17 +44,12 @@ $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 while ($adr = mysql_fetch_assoc($adressen_query)){
 $tst = $adr['subject'] ;
 ?>
-<li><a href= "Form.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
+<li><a href= "Form1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
 
 <? } ?>
-<li><form method="get" action="daten/f.php">
-     Neu: <input name="Fach" type="text"><br></li>
-
-
 </ulr>
 
 <?php
-$Fach = $_GET['u'] ;
 include("daten/form.php") ; 
 ?> 
 </div>
