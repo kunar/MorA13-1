@@ -31,7 +31,9 @@ $pass = $_SESSION['pass'];
 			<input type="button" value="Noten Eintragen" onClick="parent.location='Form.php'"/>
 			<input type="button" value="Noten Anzeigen" onClick="parent.location='Show.php'"/>
 			<input type="button" value="Gewichtungen" onClick="parent.location='graf.php'"/>
-</div></div>
+
+
+</div>
 			<div class="footer">
 				
 				<p>Copyright &#169; Artur & Moritz 2013</p>

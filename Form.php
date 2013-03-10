@@ -35,22 +35,31 @@ $pass = $_SESSION['pass'];
 <form method="get" action="daten/f.php">
 <?
 $Fach = $_GET['u'] ;
+$_SESSION['sub']=$Fach ;
 ?>
+
 <ul><li><div><h3><? echo "$Fach" ; ?></h3></div></ul></li>
 <ulr>
 <?php include ("dbl.php");
 $sql = "SELECT DISTINCT subject FROM A12 ;";
 $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 
+
 while ($adr = mysql_fetch_assoc($adressen_query)){
 $tst = $adr['subject'] ;
 ?>
-<li><a href= "Form1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
+<br><li><input type="button" value="-"onClick="parent.location='daten/delet.php'"><a href= "Form1.php?u=<?php echo "$tst" ; ?>">
 
+
+
+<?php echo "$tst" ; ?></li></a></br>
 <? } ?>
-<li>
-     Neu: <input name="Fach" type="text"><br></li>
+<li><br>
+     Neu: <input style="width:70px;" name="Fach" type="text"><br></li></br>
 </ulr>
+
+
+
 <center><p><br>Bitte Fach W&aumlhlen..</br>
 <br>..oder neues Fach hinzufügen</br></p></center>
 

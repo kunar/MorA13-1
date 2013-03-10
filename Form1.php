@@ -44,8 +44,8 @@ $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
 while ($adr = mysql_fetch_assoc($adressen_query)){
 $tst = $adr['subject'] ;
 ?>
-<li><a href= "Form1.php?u=<?php echo "$tst" ; ?>"><?php echo "$tst" ; ?></li></a>
-
+<br><li><a href= "Form1.php?u=<?php echo "$tst" ; ?>">
+<?php echo "$tst" ; ?></li></a></br>
 <? } ?>
 </ulr>
 

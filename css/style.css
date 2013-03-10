@@ -294,13 +294,14 @@ body{
 .body ulr{
 	margin:0;
 	list-style:none;
-	padding:0 0 13px ;	
+	padding-bottom: 13px;
+	padding: 0 0 13px ;	
 	float:left
 	}
 .body ulr li{
 	float:center;
-	margin:0 170px 0 23px;
-	line-height: 3;
+	margin:0 200px 0 23px;
+	line-height: 1;
 	font-size:16px;
 	text-decoration:none;
 	color:#5e5e5e;
@@ -318,7 +319,18 @@ body{
 	font-family: 'RokkittRegular';
 	outline:none;
 }
-
+.body bu{
+	background:url(../images/130.png) no-repeat;
+	border:1;
+    height:30px;
+    width:30px;
+	font-family: 'RokkittRegular';
+	color:#fff;
+	font-size:40px;
+	margin:0 0 0 0;
+	cursor:pointer;
+	outline:none;
+}
 
 
 /*------------------------- Footer ------------------------*/ 
