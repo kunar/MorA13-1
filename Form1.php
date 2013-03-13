@@ -26,13 +26,34 @@ $pass = $_SESSION['pass'];
 				</ul>
 			</div>
 			<div class="body">
-				<div id="featured"><center>
-<br></br>
-			<input type="button" value="Noten Eintragen" onClick="parent.location='Form.php'"/>
-			<input type="button" value="Noten Anzeigen" onClick="parent.location='Show.php'"/>
-			<input type="button" value="Noten Uebersicht" onClick="parent.location='graf.php'"/>
-</div></div>
-			<div class="footer">
+				<ur>
+					<li  class="selected"><a href="Form.php">Noten Eintragen</a></li>
+					<li><a href="Show.php">Noten Zeigen</a></li>
+					<li><a href="graf.php">Noten Uebersicht</a></li>
+
+</ur>
+<?
+$Fach = $_GET['u'] ;
+?>
+<ul><li><div><h3><? echo "$Fach" ; ?></h3></div></ul></li>
+<ulr>
+<?php include ("dbl.php");
+$sql = "SELECT DISTINCT subject FROM A12 ;";
+$adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
+
+while ($adr = mysql_fetch_assoc($adressen_query)){
+$tst = $adr['subject'] ;
+?>
+<br><li><a href= "Form1.php?u=<?php echo "$tst" ; ?>">
+<?php echo "$tst" ; ?></li></a></br>
+<? } ?>
+</ulr>
+
+<?php
+include("daten/form.php") ; 
+?> 
+</div>
+		<div class="footer">
 				
 				<p>Copyright &#169; Artur & Moritz 2013</p>
 				<div class="connect">

@@ -26,16 +26,15 @@ $pass = $_SESSION['pass'];
 				</ul>
 			</div>
 			<div class="body">
-				<ur>
-					<li  class="selected"><a href="Form.php">Noten Eintragen</a></li>
-					<li><a href="Show.php">Noten Zeigen</a></li>
-					<li><a href="graf.php">Noten Uebersicht</a></li>
+				<div id="featured"><center>
+<br></br>
+			<input type="button" value="Noten Eintragen" onClick="parent.location='Form.php'"/>
+			<input type="button" value="Noten Anzeigen" onClick="parent.location='Show.php'"/>
+			<input type="button" value="Gewichtungen" onClick="parent.location='graf.php'"/>
 
-</ur>
 
-<?php include("daten/form.php"); ?>	
 </div>
-		<div class="footer">
+			<div class="footer">
 				
 				<p>Copyright &#169; Artur & Moritz 2013</p>
 				<div class="connect">
