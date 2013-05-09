@@ -1,4 +1,8 @@
 <?php
-echo "Fach löschen?" ;
+session_start();
 $test= $_SESSION['sub'];
-echo "$test";
+$id = $_SESSION['Id'];
+header("Location: ../Show.php");
+include("../Login/dbl.php");
+mysql_query("DELETE FROM A$id WHERE Fach = '$test'");
+?>

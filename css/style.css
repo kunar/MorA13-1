@@ -60,10 +60,34 @@ body{
 /*------------------------- Body ------------------------*/ 
 .body{
 	width:940px;
+	font-family: 'RokkittRegular';
 	margin:0 auto;
+	height:448px;
 	padding:0 10px;
 	overflow:hidden;
+	line-height: 1;
 }
+.li{
+	float:center;
+	margin:0 100px 0 23px;
+	line-height: 2;
+	font-size:16px;
+	text-decoration:none;
+	color:#5e5e5e;
+	font-family: 'RokkittRegular';
+	outline:none;
+}
+
+.rundeEcken {
+width: 300px;
+padding: 8px;
+text-align: center;
+    border-radius: 20px;
+    border: 1px solid #cccccc;
+    background-color: #dcdcdc ;
+    
+}
+
 .body div#featured{
 	background:url() no-repeat right top;
 	height:448px;
@@ -100,6 +124,9 @@ body{
 	cursor:pointer;
 	outline:none;
 }
+.body div#f1 { position:absolute; top:140px; right:160px; width:200px; height:50px;  }
+.body div#f2 { position:absolute; top:20px; left:100px; width:400px; height:400px;  }
+
 .body ul.blog{
 	list-style:none;
 	margin:40px 0 0;
@@ -163,6 +190,12 @@ body{
 	margin:15px 0 0;
 	line-height:21px;
 }
+.body fieldset {
+		   border: 2px solid #C5D8E1; 
+           border-radius: 6px; 
+           background: white;
+           vertical-align:middle;
+} 
 .body p{
 	font-family: 'RokkittRegular';
 	font-size:16px;
@@ -293,6 +326,7 @@ body{
 }
 .body ulr{
 	margin:0;
+	position:absolute; top:200px; left:150px; width:180px;
 	list-style:none;
 	padding-bottom: 13px;
 	padding: 0 0 13px ;	
@@ -300,8 +334,8 @@ body{
 	}
 .body ulr li{
 	float:center;
-	margin:0 200px 0 23px;
-	line-height: 1;
+	margin:0 100px 0 23px;
+	line-height: 2;
 	font-size:16px;
 	text-decoration:none;
 	color:#5e5e5e;
@@ -331,8 +365,14 @@ body{
 	cursor:pointer;
 	outline:none;
 }
-
-
+.body g{
+	position:absolute; top:25%; left:25%; width:300px; 
+}
+.body gl{
+	position:absolute; top:25%; left:20%; width:300px; 
+}
+.body h{
+	position:absolute; top:22%; right:18%; width:300px; }
 /*------------------------- Footer ------------------------*/ 
 .footer{
 	width:940px;

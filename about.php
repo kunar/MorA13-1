@@ -1,4 +1,6 @@
-<?php include("Login/testuser.php") ;
+<?php
+session_start();
+include("Login/testuser.php") ;
 $name = $_SESSION['name'];
 $pass = $_SESSION['pass'];
 ?>
@@ -19,9 +21,9 @@ $pass = $_SESSION['pass'];
 				<a href="index.php" id="logo"><img src="images/logo2.png" alt=""/></a>
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href="eingeloggt.php">Meine Noten</a></li>
+					<li><a href="Show.php">Meine Noten</a></li>
 					<li><a href="blog.php">Dokumentation</a></li>
-					<li><a href="ausloggen.php"><?php echo "$name" ;?> Ausloggen</a></li>
+					<li><a href="Login.php?t=aus"><?php echo "$name" ;?> Ausloggen</a></li>
 					<li class="selected"><a href="about.php">&Uumlber uns</a></li>
 					
 					

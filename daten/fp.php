@@ -1,7 +1,7 @@
 <?php
 session_start();
 $Id = $_SESSION['Id'];
-$Projekt = $_SESSION['Projekt'];
+$Projekt = $_GET['Projekt'];
 $Date = $_GET['Dates'] ;
 $Note = $_GET['Notes'] ;
 $Fach = $_GET['Fach'] ;
@@ -14,4 +14,3 @@ include ("../Login/dbl.php");
 mysql_close();
 
 ?>
-

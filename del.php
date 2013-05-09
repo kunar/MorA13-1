@@ -1,5 +1,18 @@
+<?php 
+session_start();
+include("Login/testuser.php") ;
+$Fach = $_GET['u'] ; 
+?>
+<!DOCTYPE html>
+<html>
+	<body><center><?
+
+echo "<font color='#ff6347' >$Fach wirklich entfernen? </font>" ?>
+
+ 	<input type="button" onclick="window.location.href = 'daten/delet.php';" value="Ok">
+	 <input type="button" onclick="window.location.href = 'Show.php?u=<?php echo $Fach ?>';" value="Abbrechen"></center></body>
 <?php
-@session_start();
+session_start();
 include("Login/testuser.php");
 $name = $_SESSION['name'];
 $pass = $_SESSION['pass'];
@@ -8,19 +21,17 @@ $Projekt = $_SESSION['Projekt'];
 @$Fach = $_GET['u'];
 
 
-
 function Durchschnitt($Id, $Fach)
 {
     
     $du = array();
-    $Projekt = $_SESSION['Projekt'];
     include("Login/dbl.php");
-    $zeugs = mysql_query("SELECT gewe, gewez FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.gewe !='' AND A$Id.Projekt = '$Projekt'");
+    $zeugs = mysql_query("SELECT gewe, gewez FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.gewe !=''");
     while ($zeile = mysql_fetch_array($zeugs)) {
         $z = $zeile['gewe'];
         
         $dum = array();
-        $zeu = mysql_query("SELECT Note FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.Art='$z'AND A$Id.Projekt = '$Projekt' ");
+        $zeu = mysql_query("SELECT Note FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.Art='$z' ");
         while ($zei = mysql_fetch_array($zeu)) {
             
             array_push($dum, $zei['Note']);
@@ -28,7 +39,7 @@ function Durchschnitt($Id, $Fach)
         $durrm = array_sum($dum);
         $c     = count($dum);
         @$durm  = $durrm / $c;
-        $zeu   = mysql_query("SELECT gewez FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.gewe='$z' AND A$Id.gewez!='' AND A$Id.Projekt = '$Projekt'");
+        $zeu   = mysql_query("SELECT gewez FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.gewe='$z' AND A$Id.gewez!=''");
         while ($zei = mysql_fetch_array($zeu)) {
             $y = $zeile['gewez'];
             
@@ -42,12 +53,12 @@ function Durchschnitt($Id, $Fach)
 }
 
 
-function Gesamt_Durchschnitt($Id,$Projekt)
+function Gesamt_Durchschnitt($Id)
 {
     $du  = array();
     $dum = array();
     include("Login/dbl.php");
-    $sql = "SELECT DISTINCT Fach FROM A$Id WHERE A$Id.Note !=0 AND A$Id.Projekt = '$Projekt';";
+    $sql = "SELECT DISTINCT Fach FROM A$Id WHERE A$Id.Note !=0;";
     $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
     while ($adr = mysql_fetch_assoc($adressen_query)) {
         $tst = $adr['Fach'];
@@ -59,62 +70,13 @@ function Gesamt_Durchschnitt($Id,$Projekt)
     @$dur   = $durm1 / $i;
     return $dur;
 }
-function Global_Durchschnitt($Id, $Fach, $Projekt)
-{
-    
-    $du = array();
-    include("Login/dbl.php");
-    $zeugs = mysql_query("SELECT gewe, gewez FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.gewe !='' AND A$Id.Projekt = '$Projekt'");
-    while ($zeile = mysql_fetch_array($zeugs)) {
-        $z = $zeile['gewe'];
-        
-        $dum = array();
-        $zeu = mysql_query("SELECT Note FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.Art='$z'AND A$Id.Projekt = '$Projekt' ");
-        while ($zei = mysql_fetch_array($zeu)) {
-            
-            array_push($dum, $zei['Note']);
-        }
-        $durrm = array_sum($dum);
-        $c     = count($dum);
-        @$durm  = $durrm / $c;
-        $zeu   = mysql_query("SELECT gewez FROM A$Id WHERE A$Id.Fach='$Fach' AND A$Id.gewe='$z' AND A$Id.gewez!='' AND A$Id.Projekt = '$Projekt'");
-        while ($zei = mysql_fetch_array($zeu)) {
-            $y = $zeile['gewez'];
-            
-            $zwi = $durm * ($y / 100);
-            array_push($du, $zwi);
-            
-        }
-    }
-    $ges = array_sum($du);
-    return $ges;
-}
-function GGesamt_Durchschnitt($Id,$Projekt)
-{
-    $du  = array();
-    $dum = array();
-    include("Login/dbl.php");
-    $sql = "SELECT DISTINCT Fach FROM A$Id WHERE A$Id.Note !=0 AND A$Id.Projekt = '$Projekt';";
-    $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
-    while ($adr = mysql_fetch_assoc($adressen_query)) {
-        $tst = $adr['Fach'];
-        $di  = Global_Durchschnitt($Id, $tst, $Projekt);
-        array_push($du, $di);
-    }
-    $durm1 = array_sum($du);
-    $i     = count($du);
-    @$dur   = $durm1 / $i;
-    return $dur;
-}
-
 function createdropdown($value,$Fach,$Id)
 {
     $array1 = array();
     $array2 = array();
-    $Projekt = $_SESSION['Projekt'];
-
+    
     include("Login/dbl.php");
-    $sql = "SELECT gewe, gewez FROM A$Id WHERE A$Id.gewe != '' AND A$Id.Fach='$Fach' AND A$Id.Projekt = '$Projekt';";
+    $sql = "SELECT gewe, gewez FROM A$Id WHERE A$Id.gewe != '' AND A$Id.Fach='$Fach';";
     $adressen_query = mysql_query($sql) or die("Anfrage nicht erfolgreich");
     $anzahl = mysql_num_rows($adressen_query);
     while ($adr = mysql_fetch_array($adressen_query)) {
@@ -149,7 +111,7 @@ function createdropdown($value,$Fach,$Id)
                     <li><a href="index.php">Home</a></li>
                     <li class="selected"><a href="Show.php">Meine Noten</a></li>
                     <li><a href="blog.php">Dokumentation</a></li>
-                    <li><a href="Login.php?t=aus"><?php echo $name; ?> ausloggen</a></li>
+                    <li><a href="login.php?t=aus"><?php echo $name; ?> Ausloggen</a></li>
                     <li><a href="about.php">&Uumlber uns</a></li>
                 </ul>
             </div>
@@ -158,12 +120,9 @@ function createdropdown($value,$Fach,$Id)
                 
 
 <?php
+session_start();
+
 include("Login/dbl.php");
-if($Projekt == "false"){
-	include("zeigen/frag.php");
-}
-else{
-	echo "<center><a href='change.php'>$Projekt verlassen</a></center>";
 
 if(isset($Fach)) {
 		include("zeigen/top.php");
@@ -175,5 +134,5 @@ if(isset($Fach)) {
 
 			include("zeigen/toplow.php");
 			include("zeigen/site.php");
-}
+
 ?>
